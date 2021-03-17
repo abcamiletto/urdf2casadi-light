@@ -70,6 +70,47 @@ class URDFparser(object):
 
         return joint_list, actuated_names, upper, lower
 
+    def get_other_limits(self, root, tip):
+        """Using an URDF to extract joint max effort and velocity"""
+
+        chain = self.robot_desc.get_chain(root, tip)
+        if self.robot_desc is None:
+            raise ValueError('Robot description not loaded from urdf')
+
+        max_effort = []
+        max_velocity = []
+
+        for item in chain:
+            if item in self.robot_desc.joint_map:
+                joint = self.robot_desc.joint_map[item]
+                if joint.type in self.actuated_types:
+                    max_effort += [joint.limit.velocity]
+                    max_velocity += [joint.limit.effort]
+
+        return max_effort, max_velocity
+
+    def get_friction_matrixes(self, root, tip):
+        """Using an URDF to extract joint frictions and dampings"""
+
+        chain = self.robot_desc.get_chain(root, tip)
+        if self.robot_desc is None:
+            raise ValueError('Robot description not loaded from urdf')
+
+        friction = []
+        damping = []
+
+        for item in chain:
+            if item in self.robot_desc.joint_map:
+                joint = self.robot_desc.joint_map[item]
+                if joint.type in self.actuated_types:
+                    friction += [joint.dynamics.friction]
+                    damping += [joint.dynamics.damping]
+
+        Fv = np.diag(friction)
+        Fd = np.diag(damping)
+        return Fv, Fd
+
+
     def get_n_joints(self, root, tip):
         """Returns number of actuated joints."""
 
