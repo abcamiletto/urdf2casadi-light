@@ -10,9 +10,9 @@ from setuptools import find_packages, setup, Command
 # Package Metadata
 NAME = "urdf2casadi"
 DESCRIPTION = "Module for turning a chain in a URDF to a casadi function."
-URL = "http://github.com/mahaarbo/urdf2casadi"
-EMAIL = "mathias.arbo@ntnu.no"
-AUTHOR = "Mathias Hauan Arbo"
+URL = "http://github.com/abcamiletto/urdf2casadi"
+EMAIL = "abcamiletto@gmail.com"
+AUTHOR = "Andrea Boscolo Camiletto, Mathias Hauan Arbo"
 REQUIRES_PYTHON = ">=2.7.0"
 VERSION = "0.1.1"
 
