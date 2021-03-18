@@ -84,8 +84,12 @@ class URDFparser(object):
             if item in self.robot_desc.joint_map:
                 joint = self.robot_desc.joint_map[item]
                 if joint.type in self.actuated_types:
-                    max_effort += [joint.limit.effort]
-                    max_velocity += [joint.limit.velocity]
+                    if joint.limit is None:
+                        max_effort += [cs.inf]
+                        max_velocity += [cs.inf]
+                    else:
+                        max_effort += [joint.limit.effort]
+                        max_velocity += [joint.limit.velocity]
         max_effort = [float('inf') if x==None else x for x in max_effort]
         max_velocity = [float('inf') if x==None else x for x in max_velocity]
 

@@ -14,7 +14,7 @@ URL = "http://github.com/abcamiletto/urdf2casadi"
 EMAIL = "abcamiletto@gmail.com"
 AUTHOR = "Andrea Boscolo Camiletto, Mathias Hauan Arbo"
 REQUIRES_PYTHON = ">=2.7.0"
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 
 REQUIRED = [
     "casadi", "numpy", "urdf-parser-py"
