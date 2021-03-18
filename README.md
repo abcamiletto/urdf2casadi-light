@@ -4,9 +4,8 @@ A module for generating the forward kinematics of a robot from a URDF. It can ge
 *DISCLAIMER*: as that's a forked repo from the urdf2casadi original one, be sure to cite the original authors if you use this! You will find everything you need at the bottom.
 
 ## Installation
-1. Change the `urdfdom-py` to `urdf-parser-py` in `requirements.txt` (line 3) and in `setup.py` (line 20).
-2. [Get CasADi](https://github.com/casadi/casadi/wiki/InstallationInstructions) (e.g. `pip install casadi`).
-3.  Run `pip install --user .` in the folder (`--user` specifies that it is a local install).
+1. [Get CasADi](https://github.com/casadi/casadi/wiki/InstallationInstructions) (e.g. `pip install casadi`).
+2.  Run `pip install --user .` in the folder (`--user` specifies that it is a local install).
 
 
 ## Citation
