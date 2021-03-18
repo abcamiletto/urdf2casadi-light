@@ -1,8 +1,7 @@
 # URDF2CASADI
 A module for generating the forward kinematics of a robot from a URDF. It can generate the forward kinematics represented as a dual quaternion or a transformation matrix. `urdf2casadi` works both in python 2 and 3, and any platform that supports `CasADi` and `urdf_parser_py`.
 
-## Other libraries
-This module is implemented in Python, and was intended to explore a CasADi approach to forward kinematics and rigid body dynamics algorithms based on URDFs. For a more real-time control applicable alternative, consider the [Pinocchio](https://github.com/stack-of-tasks/pinocchio) library.
+*DISCLAIMER*: as that's a forked repo from the urdf2casadi original one, be sure to cite the original authors if you use this! You will find everything you need at the bottom.
 
 ## Installation
 1. Change the `urdfdom-py` to `urdf-parser-py` in `requirements.txt` (line 3) and in `setup.py` (line 20).
