@@ -84,8 +84,10 @@ class URDFparser(object):
             if item in self.robot_desc.joint_map:
                 joint = self.robot_desc.joint_map[item]
                 if joint.type in self.actuated_types:
-                    max_effort += [joint.limit.velocity]
-                    max_velocity += [joint.limit.effort]
+                    max_effort += [joint.limit.effort]
+                    max_velocity += [joint.limit.velocity]
+        max_effort = [float('inf') if x==None else x for x in max_effort]
+        max_velocity = [float('inf') if x==None else x for x in max_velocity]
 
         return max_effort, max_velocity
 
@@ -105,7 +107,8 @@ class URDFparser(object):
                 if joint.type in self.actuated_types:
                     friction += [joint.dynamics.friction]
                     damping += [joint.dynamics.damping]
-
+        friction = [0 if x==None else x for x in friction]
+        damping = [0 if x==None else x for x in damping]
         Fv = np.diag(friction)
         Fd = np.diag(damping)
         return Fv, Fd
