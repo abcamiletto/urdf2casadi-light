@@ -88,8 +88,6 @@ class URDFparser(object):
                         max_effort += [cs.inf]
                         max_velocity += [cs.inf]
                     else:
-                        print(type(joint.type))
-                        print(type(None))
                         max_effort += [joint.limit.effort]
                         max_velocity += [joint.limit.velocity]
         max_effort = [float('inf') if x is None else x for x in max_effort]
